@@ -1,6 +1,5 @@
-{ pkgs, ... }:
 {
-  flake.nixosModules.desktop = {
+  flake.nixosModules.desktop = {pkgs, ...}: {
     programs = {
       niri.enable = true;
       dconf.enable = true;
@@ -9,7 +8,6 @@
     ## Security
     security = {
       polkit.enable = true;
-      rtkit.enable = true;
     };
 
     # catppuccin = {

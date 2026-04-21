@@ -17,10 +17,16 @@
     flake = {
       nixosConfigurations.homie = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs self;
+          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+        };
         modules = with self.nixosModules; [
           homie
 
           #Basic
+          audio
           basic
           bluetooth
           desktop

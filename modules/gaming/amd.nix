@@ -1,6 +1,5 @@
-{ pkgs, ... }:
 {
-  flake.nixosModules.amd = {
+  flake.nixosModules.amd = { pkgs, ...}: {
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     services.xserver.videoDrivers = [ "amdgpu" ];

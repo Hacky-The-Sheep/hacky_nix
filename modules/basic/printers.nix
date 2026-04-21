@@ -1,6 +1,5 @@
-{ pkgs, ... }:
 {
-  flake.nixosModules.printers = {
+  flake.nixosModules.printers = { pkgs, ...}: {
     services.printing = {
       enable = true;
       drivers = with pkgs; [

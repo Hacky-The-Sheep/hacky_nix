@@ -1,13 +1,10 @@
-{ pkgs, ... }:
 {
-  flake.nixosModules.basic = {
+  flake.nixosModules.basic = {pkgs, ...}: {
     boot = {
-      loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-      };
-      kernelPackages = pkgs.linuxPackages-latest;
-    };
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+      kernelPackages = pkgs.linuxPackages_latest;
+  };
 
     # Same time everywhere
     time.timeZone = "America/Chicago";

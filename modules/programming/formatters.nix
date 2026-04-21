@@ -1,6 +1,5 @@
-{ pkgs, ... }:
 {
-  flake.nixosModules.formatters = {
+  flake.nixosModules.formatters = { pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       ## Dev
       alejandra

@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   ...
 }:
@@ -9,8 +8,9 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
   flake.nixosModules.noctalia =
+    { pkgs, ... }:
   {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages =  [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };

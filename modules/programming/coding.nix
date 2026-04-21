@@ -1,6 +1,5 @@
-{ pkgs, ... }:
 {
-  flake.nixosModules.coding = {
+  flake.nixosModules.coding = { pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       cargo
       go

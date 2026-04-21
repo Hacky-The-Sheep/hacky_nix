@@ -20,6 +20,7 @@
           fwork
 
           #Basic
+          audio
           basic
           bluetooth
           desktop
