@@ -42,6 +42,7 @@
 
       imports = [
         inputs.home-manager.nixosModules.default
+        ./hardware-configuration.nix
       ];
 
       home-manager.users.hacky = {
