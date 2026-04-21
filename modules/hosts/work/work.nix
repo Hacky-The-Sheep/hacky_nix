@@ -39,7 +39,6 @@
         networking
         nix
         services
-        ssh
         users
 
         ## Flakes
@@ -84,6 +83,7 @@
             desktop
             general
             nushell
+            ssh
 
           ];
           home = {
