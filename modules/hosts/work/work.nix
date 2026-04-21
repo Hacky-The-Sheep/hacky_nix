@@ -82,6 +82,7 @@
             # work
             desktop
             general
+            nushell
 
           ];
           home = {
