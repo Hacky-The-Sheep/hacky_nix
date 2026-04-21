@@ -17,10 +17,14 @@
   flake = {
     nixosConfigurations.work = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-
       specialArgs = {
         inherit inputs self;
-        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import inputs.nixpkgs {
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+          };
+        };
       };
       modules = with self.nixosModules; [
         work
@@ -31,7 +35,7 @@
         bluetooth
         desktop
         # openseas
-        # printers
+        printers
         networking
         nix
         services
@@ -48,7 +52,7 @@
 
         ## Gaming
         amd
-        # games
+        games
 
         ## Programming
         coding
@@ -94,18 +98,6 @@
               };
             };
           };
-
-          ## The Cat
-          # catppuccin = {
-          #   enable = true;
-          #   accent = "peach";
-
-          #   cursors = {
-          #     enable = true;
-          #     flavor = "mocha";
-          #     accent = "blue";
-          #   };
-          # };
         };
 
         home-manager.backupFileExtension = "backup";

@@ -8,7 +8,6 @@
         kernelPackages = pkgs.linuxPackages_latest;
       };
 
-      nixpkgs.config.allowUnfree = true;
       system.stateVersion = "25.11";
 
       # Same time everywhere
