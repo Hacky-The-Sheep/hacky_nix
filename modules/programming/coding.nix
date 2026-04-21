@@ -1,11 +1,12 @@
 {
-  flake.nixosModules.coding = { pkgs, ...}: {
-    environment.systemPackages = with pkgs; [
-      cargo
-      go
-      python315
-      rust
-      rustc
-    ];
-  };
+  flake.nixosModules.coding =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        cargo
+        go
+        python315
+        rustc
+      ];
+    };
 }
