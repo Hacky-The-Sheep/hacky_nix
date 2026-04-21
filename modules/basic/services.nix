@@ -1,12 +1,14 @@
 {
   flake.nixosModules.services = {
     services = {
+      displayManager.ly.enable = true;
+
       mullvad-vpn.enable = true;
-      tailscale.enable = true;
       openssh.enable = true;
+      tailscale.enable = true;
+
       resolved.enable = true;
     };
-    displayManager.ly.enable = true;
 
   };
 }
