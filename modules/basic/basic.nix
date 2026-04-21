@@ -1,42 +1,47 @@
 {
-  flake.nixosModules.basic = {pkgs, ...}: {
-    boot = {
-      loader.systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
-      kernelPackages = pkgs.linuxPackages_latest;
-  };
+  flake.nixosModules.basic =
+    { pkgs, ... }:
+    {
+      boot = {
+        loader.systemd-boot.enable = true;
+        loader.efi.canTouchEfiVariables = true;
+        kernelPackages = pkgs.linuxPackages_latest;
+      };
 
-    # Same time everywhere
-    time.timeZone = "America/Chicago";
+      nixpkgs.config.allowUnfree = true;
+      system.stateVersion = "25.11";
 
-    environment.systemPackages = with pkgs; [
-      # Essentials
-      helix
-      git
-      ffmpeg
-      tailscale
-      unzip
-      usbutils
-      wget
+      # Same time everywhere
+      time.timeZone = "America/Chicago";
 
-      # CLI
-      btop
-      fastfetch
-      fd
-      nmap
-      ripgrep
-      sshs
-      tree
-      yazi
-    ];
+      environment.systemPackages = with pkgs; [
+        # Essentials
+        helix
+        git
+        ffmpeg
+        tailscale
+        unzip
+        usbutils
+        wget
 
-    # Fonts
-    fonts.packages = with pkgs; [
-      fira-code
-      fira-code-symbols
-      intel-one-mono
-      iosevka-bin
-      monaspace
-    ];
-  };
+        # CLI
+        btop
+        fastfetch
+        fd
+        nmap
+        ripgrep
+        sshs
+        tree
+        yazi
+      ];
+
+      # Fonts
+      fonts.packages = with pkgs; [
+        fira-code
+        fira-code-symbols
+        intel-one-mono
+        iosevka-bin
+        monaspace
+      ];
+    };
 }

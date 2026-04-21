@@ -92,9 +92,6 @@
         };
       };
 
-      ## Gnome Keyring
-      services.gnome-keyring.enable = true;
-
       ## The Cat
       catppuccin = {
         enable = true;

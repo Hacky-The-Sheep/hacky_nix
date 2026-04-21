@@ -12,6 +12,9 @@
         polkit.enable = true;
       };
 
+      ## Keyring
+      services.gnome.gnome-keyring.enable = true;
+
       environment.systemPackages = with pkgs; [
         ## CLI
         ffuf
