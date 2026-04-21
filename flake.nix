@@ -1,6 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    # 👇 REQUIRED
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =

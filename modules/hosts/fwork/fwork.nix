@@ -14,8 +14,15 @@
         basic
         bluetooth
         desktop
+        printers
         networking
         nix
+
+        # Flakes
+        catppuccin
+        hyprland
+        nixos-hardware
+        noctalia
 
         # Programming
         coding

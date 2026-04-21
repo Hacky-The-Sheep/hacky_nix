@@ -2,10 +2,14 @@
 {
   flake.nixosModules.desktop = {
     programs = {
-      hyprland.enable = true;
       niri.enable = true;
-      fish.enable = true;
       dconf.enable = true;
+    };
+
+    ## Security
+    security = {
+      polkit.enable = true;
+      rtkit.enable = true;
     };
 
     catppuccin = {

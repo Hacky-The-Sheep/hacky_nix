@@ -10,12 +10,18 @@
       modules = with self.nixosModules; [
         homie
 
-        #Basic
+        # Basic
         basic
         bluetooth
         desktop
         networking
         nix
+        printers
+
+        # The Flakes
+        catppuccin
+        hyprland
+        noctalia
 
         # Programming
         coding
