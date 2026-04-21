@@ -39,6 +39,7 @@
         networking
         nix
         services
+        ssh
         users
 
         ## Flakes
