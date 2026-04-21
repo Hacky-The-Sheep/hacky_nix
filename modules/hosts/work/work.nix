@@ -46,6 +46,10 @@
         ## Fun
         content-creation
 
+        ## Gaming
+        amd
+        games
+
         ## Programming
         coding
         formatters
