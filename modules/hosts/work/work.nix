@@ -15,7 +15,7 @@
   ];
 
   flake = {
-    nixosConfigurations.homie = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.work = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       specialArgs = {
@@ -23,17 +23,18 @@
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
       };
       modules = with self.nixosModules; [
-        homie
+        work
 
         ## Basic
         audio
         basic
         bluetooth
         desktop
-        openseas
+        # openseas
         printers
         networking
         nix
+        services
         users
 
         ## Flakes
@@ -52,10 +53,13 @@
     };
 
     ## Device specific packages that don't "fit" in a module
-    nixosModules.homie =
+    nixosModules.work =
       { pkgs, ... }:
       {
         environment.systemPackages = with pkgs; [
+          gcr
+          pandoc
+          qFlipper
           xmrig
         ];
       };
@@ -68,7 +72,7 @@
       imports = with self.homeModules; [
 
         # HM Modules
-        homie
+        work
         desktop
         general
 
@@ -78,6 +82,16 @@
         username = "hacky";
         homeDirectory = "/home/hacky";
       };
+
+      ## Dark mode for GTK
+      dconf = {
+        settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
+        };
+      };
+
     };
 
     home-manager.backupFileExtension = "backup";

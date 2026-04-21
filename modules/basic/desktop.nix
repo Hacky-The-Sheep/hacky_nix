@@ -12,6 +12,10 @@
         polkit.enable = true;
       };
 
+      ## Gnome Keyring
+      services.gnome-keyring.enable = true;
+
+      ## The Cat
       catppuccin = {
         enable = true;
         accent = "peach";
