@@ -23,6 +23,7 @@
       wget
 
       # CLI
+      btop
       fastfetch
       fd
       nmap

@@ -28,6 +28,7 @@
       ffuf
       gobuster
       john
+      mpv
       openvpn
       rlwrap
       screen
