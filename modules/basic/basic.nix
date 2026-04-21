@@ -14,6 +14,16 @@
       # Same time everywhere
       time.timeZone = "America/Chicago";
 
+      catppuccin = {
+        enable = true;
+        accent = "peach";
+
+        cursors = {
+          enable = true;
+          flavor = "mocha";
+          accent = "blue";
+        };
+      };
       environment.systemPackages = with pkgs; [
         # Essentials
         helix
