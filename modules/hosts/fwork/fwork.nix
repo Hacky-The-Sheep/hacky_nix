@@ -5,7 +5,6 @@
   ...
 }:
 {
-  flake = {
     flake-file.inputs.home-manager = {
       url = lib.mkDefault "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,9 +13,9 @@
     imports = [
       inputs.home-manager.flakeModules.home-manager
     ];
-
     flake = {
       nixosConfigurations.fwork = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         modules = with self.nixosModules; [
           fwork
 
@@ -55,8 +54,6 @@
           homeDirectory = "/home/hacky";
         };
       };
-
       home-manager.backupFileExtension = "backup";
     };
-  };
 }

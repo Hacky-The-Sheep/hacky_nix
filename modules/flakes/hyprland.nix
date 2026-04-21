@@ -7,7 +7,7 @@
   flake.nixosModules.hyprland =
     { pkgs, ... }:
     {
-      environments.systemPackages = [
+      environment.systemPackages = [
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
     };

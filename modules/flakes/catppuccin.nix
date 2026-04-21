@@ -9,7 +9,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
   flake.nixosModules.catppuccin = {
-    environments.systemPackages = [
+    environment.systemPackages = with pkgs; [
       inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };

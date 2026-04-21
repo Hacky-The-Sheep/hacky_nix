@@ -8,8 +8,9 @@
     url = "github:noctalia-dev/noctalia-shell";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  flake.nixosModules.noctalia = {
-    environments.systemPackages = [
+  flake.nixosModules.noctalia =
+  {
+    environment.systemPackages = with pkgs; [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };

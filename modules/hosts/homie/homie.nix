@@ -5,7 +5,6 @@
   ...
 }:
 {
-  flake = {
     flake-file.inputs.home-manager = {
       url = lib.mkDefault "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +16,7 @@
 
     flake = {
       nixosConfigurations.homie = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         modules = with self.nixosModules; [
           homie
 
@@ -31,7 +31,7 @@
           # Flakes
           catppuccin
           hyprland
-          nixos-hardware
+          # nixos-hardware
           noctalia
 
           # Programming
@@ -42,12 +42,11 @@
 
       imports = [
         inputs.home-manager.nixosModules.default
-        ./hardware-configuration.nix
       ];
 
       home-manager.users.hacky = {
         imports = with self.homeModules; [
-          homie
+          
 
           # HM Modules
           desktop
@@ -63,5 +62,4 @@
 
       home-manager.backupFileExtension = "backup";
     };
-  };
 }

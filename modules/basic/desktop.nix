@@ -12,16 +12,16 @@
       rtkit.enable = true;
     };
 
-    catppuccin = {
-      enable = true;
-      accent = "peach";
+    # catppuccin = {
+    #   enable = true;
+    #   accent = "peach";
 
-      cursors = {
-        enable = true;
-        flavor = "mocha";
-        accent = "blue";
-      };
-    };
+    #   cursors = {
+    #     enable = true;
+    #     flavor = "mocha";
+    #     accent = "blue";
+    #   };
+    # };
 
     environment.systemPackages = with pkgs; [
       ## CLI
