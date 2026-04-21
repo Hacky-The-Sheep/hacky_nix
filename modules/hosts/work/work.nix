@@ -48,7 +48,7 @@
 
         ## Gaming
         amd
-        games
+        # games
 
         ## Programming
         coding
@@ -66,49 +66,49 @@
           qFlipper
           xmrig
         ];
-      };
 
-    imports = [
-      inputs.home-manager.nixosModules.default
-    ];
+        imports = [
+          inputs.home-manager.nixosModules.default
+        ];
 
-    home-manager.users.hacky = {
-      imports = with self.homeModules; [
+        home-manager.users.hacky = {
+          imports = with self.homeModules; [
 
-        # HM Modules
-        work
-        desktop
-        general
+            # HM Modules
+            work
+            desktop
+            general
 
-      ];
-      home = {
-        stateVersion = "25.11";
-        username = "hacky";
-        homeDirectory = "/home/hacky";
-      };
+          ];
+          home = {
+            stateVersion = "25.11";
+            username = "hacky";
+            homeDirectory = "/home/hacky";
+          };
 
-      ## Dark mode for GTK
-      dconf = {
-        settings = {
-          "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
+          ## Dark mode for GTK
+          dconf = {
+            settings = {
+              "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+              };
+            };
+          };
+
+          ## The Cat
+          catppuccin = {
+            enable = true;
+            accent = "peach";
+
+            cursors = {
+              enable = true;
+              flavor = "mocha";
+              accent = "blue";
+            };
           };
         };
+
+        home-manager.backupFileExtension = "backup";
       };
-
-      ## The Cat
-      catppuccin = {
-        enable = true;
-        accent = "peach";
-
-        cursors = {
-          enable = true;
-          flavor = "mocha";
-          accent = "blue";
-        };
-      };
-    };
-
-    home-manager.backupFileExtension = "backup";
   };
 }

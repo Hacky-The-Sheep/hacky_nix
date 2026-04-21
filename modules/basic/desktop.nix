@@ -61,7 +61,7 @@
 
         ## Work
         libreoffice
-        microsoft-edge
+        # microsoft-edge
         onlyoffice-desktopeditors
         powershell
         remmina
