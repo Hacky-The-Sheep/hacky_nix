@@ -15,7 +15,7 @@
   ];
 
   flake = {
-    nixosConfigurations.homie = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs self;
@@ -27,14 +27,14 @@
         };
       };
       modules = with self.nixosModules; [
-        homie
+        laptop
 
         ## Basic
         audio
         basic
         bluetooth
         desktop
-        openseas
+        # openseas
         printers
         networking
         nix
@@ -44,14 +44,14 @@
         ## Flakes
         catppuccin
         hyprland
-        # nixos-hardware
+        nixos-hardware
         noctalia
 
         ## Fun
         content-creation
 
         ## Gaming
-        # amd
+        amd
         # games
 
         ## Programming
@@ -61,14 +61,11 @@
     };
 
     ## Device specific packages that don't "fit" in a module
-    nixosModules.homie =
+    nixosModules.laptop =
       { pkgs, ... }:
       {
         environment.systemPackages = with pkgs; [
-          gcr
-          pandoc
-          qFlipper
-          xmrig
+          calibre
         ];
 
         imports = [
@@ -78,11 +75,12 @@
         home-manager.users.hacky = {
           imports = with self.homeModules; [
 
-            ## HM Modules
+            # HM Modules
             desktop
             general
             nushell
-            # ssh
+            ssh
+
           ];
           home = {
             stateVersion = "25.11";
