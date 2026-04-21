@@ -15,18 +15,6 @@
       ## Gnome Keyring
       services.gnome-keyring.enable = true;
 
-      ## The Cat
-      catppuccin = {
-        enable = true;
-        accent = "peach";
-
-        cursors = {
-          enable = true;
-          flavor = "mocha";
-          accent = "blue";
-        };
-      };
-
       environment.systemPackages = with pkgs; [
         ## CLI
         ffuf

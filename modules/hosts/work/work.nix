@@ -92,6 +92,17 @@
         };
       };
 
+      ## The Cat
+      catppuccin = {
+        enable = true;
+        accent = "peach";
+
+        cursors = {
+          enable = true;
+          flavor = "mocha";
+          accent = "blue";
+        };
+      };
     };
 
     home-manager.backupFileExtension = "backup";
