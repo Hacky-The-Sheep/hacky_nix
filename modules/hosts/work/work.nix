@@ -31,7 +31,7 @@
         bluetooth
         desktop
         # openseas
-        printers
+        # printers
         networking
         nix
         services
