@@ -1,5 +1,5 @@
 {
-  flake.homeModules.general = {
+  flake.homeModules.desktop = {
     # GHOSTTY
     programs.ghostty = {
       enable = true;
