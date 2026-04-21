@@ -75,7 +75,7 @@
           imports = with self.homeModules; [
 
             # HM Modules
-            work
+            # work
             desktop
             general
 
@@ -96,16 +96,16 @@
           };
 
           ## The Cat
-          catppuccin = {
-            enable = true;
-            accent = "peach";
+          # catppuccin = {
+          #   enable = true;
+          #   accent = "peach";
 
-            cursors = {
-              enable = true;
-              flavor = "mocha";
-              accent = "blue";
-            };
-          };
+          #   cursors = {
+          #     enable = true;
+          #     flavor = "mocha";
+          #     accent = "blue";
+          #   };
+          # };
         };
 
         home-manager.backupFileExtension = "backup";

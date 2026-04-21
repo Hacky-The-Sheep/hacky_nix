@@ -38,6 +38,7 @@
         exfat
         ffmpeg
         handbrake
+        hyprpolkitagent
         libdvdcss
         ntfs3g
 
