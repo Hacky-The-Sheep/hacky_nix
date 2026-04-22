@@ -76,14 +76,25 @@
         ];
 
         home-manager.users.hacky = {
-          imports = with self.homeModules; [
+          imports =
+            (with self.homeModules; [
 
-            ## HM Modules
-            desktop
-            general
-            nushell
-            # ssh
-          ];
+              ## HM Modules
+              desktop
+              general
+              nushell
+              # ssh
+            ])
+            ++ [
+              inputs.catppuccin.homeModules.catppuccin
+            ];
+
+          catppuccin = {
+            enable = true;
+            accent = "peach";
+            flavor = "mocha";
+          };
+
           home = {
             stateVersion = "25.11";
             username = "hacky";
