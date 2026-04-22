@@ -73,20 +73,30 @@
         ];
 
         home-manager.users.hacky = {
-          imports = with self.homeModules; [
+          imports =
+            (with self.homeModules; [
 
-            # HM Modules
-            desktop
-            general
-            laphypr
-            nushell
-            ssh
+              # HM Modules
+              desktop
+              general
+              laphypr
+              nushell
+              ssh
 
-          ];
+            ])
+            ++ [
+              inputs.catppuccin.homeModules.catppuccin
+            ];
           home = {
             stateVersion = "25.11";
             username = "hacky";
             homeDirectory = "/home/hacky";
+          };
+
+          catppuccin = {
+            enable = true;
+            accent = "peach";
+            flavor = "mocha";
           };
 
           ## Dark mode for GTK
