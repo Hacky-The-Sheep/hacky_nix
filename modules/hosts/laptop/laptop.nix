@@ -78,6 +78,7 @@
             # HM Modules
             desktop
             general
+            laphypr
             nushell
             ssh
 
