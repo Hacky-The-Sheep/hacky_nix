@@ -1,10 +1,12 @@
 {
-  flake.nixosModules.games = { pkgs, ...}: {
+  flake.nixosModules.games =
+    { pkgs, ... }:
+    {
 
-    environment.systemPackages = with pkgs; [
-      discord
-      steam
-      lutris
-    ];
-  };
+      environment.systemPackages = with pkgs; [
+        discord
+        steam
+        # lutris
+      ];
+    };
 }
