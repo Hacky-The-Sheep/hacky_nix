@@ -6,7 +6,7 @@
       enable = true;
       settings = {
         # Rice
-        background-opacity = 0.6;
+        background-opacity = 0.9;
         background-blur = true;
         background-blur-radius = 45;
 
