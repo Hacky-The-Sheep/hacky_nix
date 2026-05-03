@@ -79,7 +79,9 @@
 
               # HM Modules
               desktop
+              fastfetch
               general
+              helix
               laphypr
               nushell
               ssh
@@ -88,32 +90,32 @@
             ++ [
               inputs.catppuccin.homeModules.catppuccin
             ];
-          home = {
-            stateVersion = "25.11";
-            username = "hacky";
-            homeDirectory = "/home/hacky";
-          };
+          # home = {
+          #   stateVersion = "25.11";
+          #   username = "hacky";
+          #   homeDirectory = "/home/hacky";
+          # };
 
-          catppuccin = {
-            enable = true;
-            accent = "peach";
-            flavor = "mocha";
-          };
+          # catppuccin = {
+          #   enable = true;
+          #   accent = "peach";
+          #   flavor = "mocha";
+          # };
 
           ## Dark mode for GTK
-          dconf = {
-            settings = {
-              "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-              };
-            };
-          };
-          gtk = {
-            enable = true;
-            colorScheme = "dark";
-            gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-            gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
-          };
+          # dconf = {
+          #   settings = {
+          #     "org/gnome/desktop/interface" = {
+          #       color-scheme = "prefer-dark";
+          #     };
+          #   };
+          # };
+          # gtk = {
+          #   enable = true;
+          #   colorScheme = "dark";
+          #   gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+          #   gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+          # };
 
         };
 

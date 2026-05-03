@@ -2,7 +2,7 @@ def rebuild [] {
   let host = (input "Host: ")
   cd /home/hacky/hacky_nix/
   sudo nix run .#write-flake
-  sudo nixos-rebuild switch --upgrade --flake $".#($host)"
+  sudo nixos-rebuild switch --flake $".#($host)"
 }
 
 rebuild

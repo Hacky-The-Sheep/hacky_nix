@@ -1,261 +1,60 @@
 {
-  flake.homeModules.general = {
+  flake.homeModules.general =
+    { config, ... }:
+    let
+      dotfiles = "${config.home.homeDirectory}/hacky_nix/config";
+      mkLink = name: {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${name}";
+        recursive = true;
+      };
+    in
+    {
+      ## Home Manager
+      home = {
+        stateVersion = "25.11";
+        username = "hacky";
+        homeDirectory = "/home/hacky";
+      };
 
-    ######################################################
-    ########               HELIX                   #######
-    ######################################################
-    programs.helix = {
-      enable = true;
+      ## Catppuccin
+      catppuccin = {
+        enable = true;
+        accent = "peach";
+        flavor = "mocha";
+      };
 
-      settings = {
-        theme = "catppuccin-mocha";
+      ## GTK
+      gtk = {
+        enable = true;
+        colorScheme = "dark";
 
-        editor = {
-          auto-format = true;
-          bufferline = "multiple";
-          cursorline = true;
-          line-number = "relative";
-          true-color = true;
+        gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+        gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+      };
 
-          lsp = {
-            auto-signature-help = false;
-          };
+      ## DCONF
+      dconf.settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
 
-          statusline = {
-            left = [
-              "mode"
-              "spinner"
-              "read-only-indicator"
-              "file-modification-indicator"
-            ];
-            center = [ "file-name" ];
-            right = [
-              "selections"
-              "position"
-              "file-encoding"
-              "file-line-ending"
-              "file-type"
-            ];
-
-            mode = {
-              normal = "NORMAL 🐧";
-              insert = "INSERT 🚀";
-              select = "SELECT  👆";
-            };
-          };
-
-          cursor-shape = {
-            insert = "bar";
-            select = "underline";
-          };
-
-          indent-guides = {
-            render = true;
-          };
-        };
-
-        keys = {
-          normal = {
-            esc = [
-              "collapse_selection"
-              "keep_primary_selection"
-            ];
-            C-space = "signature_help";
-            X = "extend_line_up";
-            C-l = "extend_to_line_end";
-
-            space = {
-              w = ":write";
-              q = ":quit";
-              b = ":buffer-close";
-            };
+      ## GIT
+      programs = {
+        git = {
+          enable = true;
+          settings = {
+            user.name = "hacky";
+            user.email = "jon.nguyen7@protonmail.com";
           };
         };
       };
 
-      languages = {
-        language = [
-          {
-            name = "rust";
-            auto-format = true;
-          }
-          {
-            name = "python";
-            scope = "source.python";
-            injection-regex = "python";
-            file-types = [
-              "py"
-              "pyi"
-              "py3"
-              "pyw"
-              ".pythonstartup"
-              ".pythonrc"
-            ];
-            shebangs = [ "python" ];
-            roots = [
-              "."
-              "pyproject.toml"
-              "pyrightconfig.json"
-            ];
-            comment-token = "#";
-            language-servers = [
-              "pyright"
-              "ruff"
-              "pylsp"
-            ];
-            auto-format = true;
-          }
-          {
-            name = "nix";
-            language-servers = [ "nixd" ];
-            auto-format = true;
-          }
-          {
-            name = "markdown";
-            formatter = {
-              command = "deno";
-              args = [
-                "fmt"
-                "-"
-                "--ext"
-                "md"
-              ];
-            };
-            auto-format = true;
-          }
-        ];
+      ## GNOME Keyring Service
+      services.gnome-keyring.enable = true;
 
-        language-server = {
-          qmlls = {
-            command = "qmlls";
-            args = [ "-E" ];
-          };
-        };
+      ## XDG Config Files
+      xdg.configFile = {
+        niri = mkLink "niri";
+        noctalia = mkLink "noctalia";
       };
     };
-
-    ######################################################
-    ########               FASTFETCH               #######
-    ######################################################
-    programs.fastfetch = {
-      enable = true;
-      settings = {
-        modules = [
-          "break"
-          {
-            type = "custom";
-            format = "┌────────────────────── Hardware ──────────────────────┐";
-            outputColor = "red";
-          }
-          {
-            type = "title";
-            key = "  PC";
-            keyColor = "green";
-          }
-          {
-            type = "cpu";
-            key = "│ ├󰍛 CPU";
-            showPeCoreCount = true;
-            format = "{1}";
-            keyColor = "green";
-          }
-          {
-            type = "gpu";
-            key = "│ ├󰍛 GPU";
-            keyColor = "green";
-          }
-          {
-            type = "memory";
-            key = "│ ├󰍛 Memory";
-            keyColor = "green";
-          }
-          {
-            type = "storage";
-            key = "└ └󰍛 Storage";
-            keyColor = "green";
-          }
-          {
-            type = "custom";
-            format = "└──────────────────────────────────────────────────────┘";
-            outputColor = "red";
-          }
-          "break"
-          {
-            type = "custom";
-            format = "┌────────────────────── Software ──────────────────────┐";
-            outputColor = "red";
-          }
-          {
-            type = "os";
-            key = " OS";
-            keyColor = "yellow";
-          }
-          {
-            type = "kernel";
-            key = "│ ├ Kernel";
-            keyColor = "yellow";
-          }
-          {
-            type = "packages";
-            key = "│ ├󰏖 Packages";
-            keyColor = "yellow";
-          }
-          {
-            type = "shell";
-            key = "│ ├ Shell";
-            keyColor = "yellow";
-          }
-          {
-            type = "command";
-            key = "│ ├ OS Age";
-            keyColor = "yellow";
-            text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
-          }
-          {
-            type = "uptime";
-            key = "└ └ Uptime";
-            keyColor = "yellow";
-          }
-          "break"
-          {
-            type = "de";
-            key = " DE";
-            keyColor = "blue";
-          }
-          {
-            type = "lm";
-            key = "│ ├ LM";
-            keyColor = "blue";
-          }
-          {
-            type = "wm";
-            key = "│ ├ WM";
-            keyColor = "blue";
-          }
-          {
-            type = "gpu";
-            key = "│ ├󰍛 GPU Driver";
-            format = "{3}";
-            keyColor = "blue";
-          }
-          {
-            type = "wmtheme";
-            key = "└ └󰉼 Theme";
-            keyColor = "blue";
-          }
-          {
-            type = "custom";
-            format = "└──────────────────────────────────────────────────────┘";
-            outputColor = "red";
-          }
-          "break"
-          {
-            type = "custom";
-            format = "                Our Lady - Pray for Us                  ";
-            outputColor = "blue";
-          }
-        ];
-      };
-    };
-  };
 }
