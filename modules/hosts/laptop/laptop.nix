@@ -34,7 +34,7 @@
         basic
         bluetooth
         desktop
-        # openseas
+        openseas
         printers
         networking
         nix
