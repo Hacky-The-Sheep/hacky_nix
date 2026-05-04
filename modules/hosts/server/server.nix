@@ -68,6 +68,9 @@
           xmrig
         ];
 
+        ## Hostname
+        networking.hostName = "mineYourOwn";
+
         imports = [
           inputs.home-manager.nixosModules.default
         ];
