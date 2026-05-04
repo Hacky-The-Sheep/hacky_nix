@@ -44,7 +44,7 @@
 
         ## Flakes
         catppuccin
-        hyprland
+        # hyprland
         nixos-hardware
         noctalia
 
