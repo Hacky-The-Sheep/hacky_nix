@@ -6,6 +6,9 @@
       tailscale.enable = true;
 
       resolved.enable = true;
+
+      gvfs.enable = true;
+      udisks2.enable = true;
     };
   };
 }
