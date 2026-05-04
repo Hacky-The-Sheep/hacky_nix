@@ -71,6 +71,9 @@
           xmrig
         ];
 
+        ## Hostname
+        networking.hostName = "workWork";
+
         imports = [
           inputs.home-manager.nixosModules.default
         ];

@@ -71,6 +71,9 @@
           xmrig
         ];
 
+        ## Hostname
+        networking.hostName = "homie";
+
         imports = [
           inputs.home-manager.nixosModules.default
         ];

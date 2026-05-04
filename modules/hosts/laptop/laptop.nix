@@ -69,6 +69,9 @@
           calibre
         ];
 
+        ## Hostname
+        networking.hostName = "fWork";
+
         imports = [
           inputs.home-manager.nixosModules.default
         ];
@@ -90,16 +93,6 @@
             ++ [
               inputs.catppuccin.homeModules.catppuccin
             ];
-
-          catppuccin = {
-            enable = true;
-            accent = "peach";
-            flavor = "mocha";
-          };
-
-          state = {
-            hostname = "fWork";
-          };
         };
 
         home-manager.backupFileExtension = "backup";
