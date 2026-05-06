@@ -39,6 +39,7 @@
         networking
         nix
         services
+        udev
         upower
         users
 
