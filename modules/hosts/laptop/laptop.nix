@@ -45,6 +45,7 @@
 
         ## Flakes
         catppuccin
+        mango
         # hyprland
         nixos-hardware
         noctalia
