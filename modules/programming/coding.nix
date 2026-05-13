@@ -10,6 +10,7 @@
 
         ## Not really programming but it works
         ghidra
+        postman
       ];
     };
 }
