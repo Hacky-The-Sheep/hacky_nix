@@ -86,11 +86,8 @@
               desktop
               fastfetch
               general
-              helix
               laphypr
-              nushell
               ssh
-
             ])
             ++ [
               inputs.catppuccin.homeModules.catppuccin

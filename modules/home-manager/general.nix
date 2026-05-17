@@ -53,8 +53,10 @@
 
       ## XDG Config Files
       xdg.configFile = {
+        helix = mkLink "helix";
         niri = mkLink "niri";
         noctalia = mkLink "noctalia";
+        nushell = mkLink "nushell";
       };
     };
 }

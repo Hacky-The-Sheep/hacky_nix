@@ -2,14 +2,15 @@
 $env.config.show_banner = false
 
 # Editor
-# $env.EDITOR = "hx"
-
-# Path
-$env.PATH ++= ['/home/hacky/.cargo/bin']
+$env.EDITOR = "hx"
 
 let carapace_completer = {|spans|
     carapace $spans.0 nushell ...$spans | from json
 }
+
+# Locale
+$env.LANG = "en_US.UTF-8"
+$env.LC_ALL = "en_US.UTF-8"
 
 # ALIASES
 alias ei = exit
@@ -79,7 +80,9 @@ def os_icon [] {
 
     match $os {
         "arch linux"   => "󰣇 "
+        "artix linux"   => " "
         "nixos" => " "
+        "void" => " "
         _         => "󰠗 "
     }
 }
@@ -129,7 +132,7 @@ let day = ($now | format date "%d" | str replace /^0/ "") # Removes leading zero
 
 $env.PROMPT_COMMAND_RIGHT = {
   # Open file and navigate safely
-  let data = (open /home/hacky/hacky_nix/scripts/saints.json)
+  let data = (open /home/hacky/.config/nushell/saints.json)
 
   if ($month in $data) and ($day in ($data | get $month)) {
       let $saint = ($data | get $month | get $day)

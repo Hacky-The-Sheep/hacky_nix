@@ -87,8 +87,6 @@
               desktop
               fastfetch
               general
-              helix
-              nushell
               # ssh
             ])
             ++ [
