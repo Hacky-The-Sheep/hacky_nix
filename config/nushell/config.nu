@@ -8,6 +8,9 @@ let carapace_completer = {|spans|
     carapace $spans.0 nushell ...$spans | from json
 }
 
+# Path
+$env.PATH ++= ['/home/hacky/.cargo/bin']
+
 # Locale
 $env.LANG = "en_US.UTF-8"
 $env.LC_ALL = "en_US.UTF-8"
