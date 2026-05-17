@@ -87,6 +87,7 @@
               desktop
               fastfetch
               general
+              homehypr
               # ssh
             ])
             ++ [

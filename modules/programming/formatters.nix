@@ -10,6 +10,7 @@
         clippy
         delve
         gopls
+        kdePackages.qtdeclarative
         markdown-oxide
         marksman
         nixd
