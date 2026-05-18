@@ -111,11 +111,11 @@
                     "id": "Workspace",
                     "labelMode": "index",
                     "occupiedColor": "primary",
-                    "pillSize": 0.63,
+                    "pillSize": 0.7,
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": true,
+                    "showLabelsOnlyWhenOccupied": false,
                     "unfocusedIconsOpacity": 1
                 },
                 {
