@@ -87,7 +87,6 @@
               # work
               desktop
               general
-              nushell
               ssh
             ])
             ++ [
