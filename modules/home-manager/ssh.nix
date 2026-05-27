@@ -40,6 +40,11 @@
          KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
          HostKeyAlgorithms +ssh-rsa
 
+        Host Women_Lock_HP
+         Hostname 10.99.0.160
+         User hacky
+         Port 22
+
         Host Asbestos_1
          HostName 10.99.0.120
          User hacky
