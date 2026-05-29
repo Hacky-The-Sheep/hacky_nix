@@ -54,7 +54,7 @@
       ## XDG Config Files
       xdg.configFile = {
         helix = mkLink "helix";
-        # hypr = mkLink "hypr";
+        hypr = mkLink "hypr";
         niri = mkLink "niri";
         noctalia = mkLink "noctalia";
         nushell = mkLink "nushell";
