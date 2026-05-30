@@ -53,6 +53,7 @@
 
       ## XDG Config Files
       xdg.configFile = {
+        alacritty = mkLink "alacritty";
         helix = mkLink "helix";
         hypr = mkLink "hypr";
         niri = mkLink "niri";

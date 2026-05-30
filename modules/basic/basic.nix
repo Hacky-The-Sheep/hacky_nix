@@ -25,6 +25,7 @@
       };
       environment.systemPackages = with pkgs; [
         # Essentials
+        alacritty
         helix
         git
         ffmpeg
@@ -49,6 +50,7 @@
         fira-code
         fira-code-symbols
         intel-one-mono
+        nerd-fonts.iosevka
         iosevka-bin
         monaspace
       ];

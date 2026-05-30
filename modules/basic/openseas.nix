@@ -3,8 +3,7 @@
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
-        qbittorrent
-        qbittorrent-cli
+        fragments
       ];
     };
 }
