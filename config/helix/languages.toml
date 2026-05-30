@@ -7,15 +7,15 @@ name = "python"
 scope = "source.python"
 injection-regex = "python"
 file-types = ["py", "pyi", "py3", "pyw", ".pythonstartup", ".pythonrc"]
-shebangs = ["python"] 
+shebangs = ["python"]
 roots = [".", "pyproject.toml", "pyrightconfig.json"]
-comment-token = "#" 
+comment-token = "#"
 language-servers = ["pyright", "ruff", "pylsp"]
 auto-format = true
 
 [[language]]
 name = "nix"
-language-servers = [ "nixd" ]
+language-servers = ["nixd"]
 auto-format = true
 
 [language-server.qmlls]
@@ -26,3 +26,13 @@ command = "qmlls"
 name = "markdown"
 formatter = { command = "deno", args = ["fmt", "-", "--ext", "md"] }
 auto-format = true
+
+[[language]]
+name = "lua"
+auto-format = true
+formatter = { command = "stylua", args = ["-"] }
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }

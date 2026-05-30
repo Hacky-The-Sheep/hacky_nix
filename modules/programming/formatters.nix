@@ -11,6 +11,7 @@
         delve
         gopls
         kdePackages.qtdeclarative
+        lua-language-server
         markdown-oxide
         marksman
         nixd
@@ -18,6 +19,7 @@
         ruff
         rust-analyzer
         rustfmt
+        stylua
         taplo
         vscode-langservers-extracted
         yaml-language-server
