@@ -12,6 +12,9 @@ hl.bind(MAIN_MOD .. " + R", hl.dsp.exec_cmd("noctalia-shell ipc call launcher to
 hl.bind(MAIN_MOD .. " + P", hl.dsp.window.pseudo())
 hl.bind(MAIN_MOD .. " + L", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
 
+-- Screenshot
+hl.bind(MAIN_MOD .. " + S", hl.dsp.exec_cmd("/home/hacky/hacky_nix/scripts/screenshot.sh"))
+
 -- Move focus with MAIN_MOD + arrow keys
 hl.bind(MAIN_MOD .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(MAIN_MOD .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -68,14 +71,18 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
--- Center the window
+-- CENTER MODE!!
 hl.bind("SUPER + C", function()
-	-- 1. Toggle the window to floating
 	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-
-	-- 2. Pass the exact percentage command directly via an execution string
 	hl.dispatch(hl.dsp.exec_cmd("hyprctl dispatch resizeactive exact 65% 85%"))
-
-	-- 3. Snap it perfectly to the center of the screen
 	hl.dispatch(hl.dsp.window.center())
 end, { description = "Niri-style center column snap" })
+
+-- Fullscreen Binding
+hl.bind(
+	"SUPER + F",
+	hl.dsp.window.fullscreen({
+		mode = "maximized",
+		action = "toggle",
+	})
+)
