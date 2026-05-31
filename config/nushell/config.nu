@@ -18,6 +18,7 @@ $env.LC_ALL = "en_US.UTF-8"
 # ALIASES
 alias ei = exit
 alias nb = newsboat
+alias zj = zellij
 
 # GIT ALIASES
 alias ga = git add
