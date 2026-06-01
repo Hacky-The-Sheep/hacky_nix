@@ -142,6 +142,28 @@
                     ]
                 },
                 {
+                    "compactMode": false,
+                    "diskPath": "/",
+                    "iconColor": "none",
+                    "id": "SystemMonitor",
+                    "showCpuCores": true,
+                    "showCpuFreq": true,
+                    "showCpuTemp": true,
+                    "showCpuUsage": true,
+                    "showDiskAvailable": false,
+                    "showDiskUsage": true,
+                    "showDiskUsageAsPercent": true,
+                    "showGpuTemp": false,
+                    "showLoadAverage": false,
+                    "showMemoryAsPercent": true,
+                    "showMemoryUsage": true,
+                    "showNetworkStats": true,
+                    "showSwapUsage": false,
+                    "textColor": "none",
+                    "useMonospaceFont": true,
+                    "usePadding": false
+                },
+                {
                     "displayMode": "onhover",
                     "iconColor": "none",
                     "id": "Bluetooth",
