@@ -1,5 +1,5 @@
 MAIN_MOD = "SUPER"
-TERMINAL = "alacritty"
+TERMINAL = "ghostty"
 FILE_MANAGER = "nautilus"
 
 require("modules.keybinds")
