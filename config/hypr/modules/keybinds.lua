@@ -8,9 +8,9 @@ hl.bind(
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 hl.bind(MAIN_MOD .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(MAIN_MOD .. " + R", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
+hl.bind(MAIN_MOD .. " + R", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind(MAIN_MOD .. " + P", hl.dsp.window.pseudo())
-hl.bind(MAIN_MOD .. " + L", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
+hl.bind(MAIN_MOD .. " + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 
 -- Screenshot
 hl.bind(MAIN_MOD .. " + S", hl.dsp.exec_cmd("/home/hacky/hacky_nix/scripts/screenshot.sh"))
