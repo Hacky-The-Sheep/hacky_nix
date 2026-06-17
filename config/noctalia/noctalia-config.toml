@@ -1,0 +1,86 @@
+[bar.default]
+background_opacity = 0.24999999441206455
+center = [ "clock", "notifications" ]
+end = [ "tray", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
+margin_ends = 20
+padding = 16
+start = [ "workspaces", "wallpaper", "audio_visualizer" ]
+thickness = 36
+widget_spacing = 8
+
+[desktop_widgets]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-5" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-5"]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1720.0
+    cy = 1317.0
+    output = "DP-5"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-5".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+[notification]
+background_opacity = 0.88999998010694981
+position = "top_center"
+scale = 1.0500000081956387
+
+[plugins]
+enabled = []
+
+[shell]
+font_family = "Iosevka"
+ui_scale = 1.1000000089406967
+
+    [shell.panel]
+    transparency_mode = "glass"
+
+[theme]
+builtin = "Catppuccin"
+
+    [theme.templates]
+    builtin_ids = [ "niri" ]
+
+[wallpaper.default]
+path = "/home/hacky/Pictures/Wallpapers/retro_wave_2.jpg"
+
+[wallpaper.last]
+path = "/home/hacky/Pictures/Wallpapers/retro_wave_2.jpg"
+
+[wallpaper.monitors.DP-5]
+path = "/home/hacky/Pictures/Wallpapers/retro_wave_2.jpg"
+
+[widget.audio_visualizer]
+show_when_idle = true
+
+[widget.cat]
+type = "noctalia/bongocat:cat"
+
+[widget.clock]
+format = "{:%a %b %d -%l:%M %p}"
+
+[widget.control-center]
+custom_image = "/home/hacky/Pictures/Icons/nixos.svg"
+custom_image_colorize = true
+scale = 1.2
+
+[widget.session]
+scale = 1.2

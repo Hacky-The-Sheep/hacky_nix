@@ -590,3 +590,5 @@ binds {
     //     place-within-backdrop true
     // }
 }
+
+include "noctalia.kdl"
