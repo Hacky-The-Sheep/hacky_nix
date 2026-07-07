@@ -2,37 +2,66 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-flake.nixosModules.laptop = {
- config, lib, pkgs, modulesPath, ... }:
+  flake.nixosModules.laptop =
+    {
+      config,
+      lib,
+      pkgs,
+      modulesPath,
+      ...
+    }:
 
-{
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    {
+      imports = [
+        (modulesPath + "/installer/scan/not-detected.nix")
+      ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+      boot.initrd.availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "thunderbolt"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-amd" ];
+      boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/luks-eac468a1-2ebe-4a76-b6fb-21841394da84";
-      fsType = "ext4";
+      fileSystems."/" = {
+        device = "/dev/mapper/luks-23f9ad47-4350-4761-b9cd-23971e578669";
+        fsType = "btrfs";
+      };
+
+      boot.initrd.luks.devices."luks-23f9ad47-4350-4761-b9cd-23971e578669".device =
+        "/dev/disk/by-uuid/23f9ad47-4350-4761-b9cd-23971e578669";
+
+      fileSystems."/home" = {
+        device = "/dev/mapper/luks-23f9ad47-4350-4761-b9cd-23971e578669";
+        fsType = "btrfs";
+        options = [ "subvol=home" ];
+      };
+
+      fileSystems."/nix" = {
+        device = "/dev/mapper/luks-23f9ad47-4350-4761-b9cd-23971e578669";
+        fsType = "btrfs";
+        options = [ "subvol=nix" ];
+      };
+
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/CB90-38D4";
+        fsType = "vfat";
+        options = [
+          "fmask=0077"
+          "dmask=0077"
+        ];
+      };
+
+      swapDevices = [
+        { device = "/dev/mapper/luks-f865cd4d-c279-452e-ad7b-17f3e523fab0"; }
+      ];
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
-
-  boot.initrd.luks.devices."luks-eac468a1-2ebe-4a76-b6fb-21841394da84".device = "/dev/disk/by-uuid/eac468a1-2ebe-4a76-b6fb-21841394da84";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6F98-C7E5";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  swapDevices =
-    [ { device = "/dev/mapper/luks-c2ab4dbf-e8a9-4456-bf34-9901d9f90a95"; }
-    ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-};
 }

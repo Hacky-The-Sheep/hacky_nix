@@ -3,36 +3,54 @@
 # to /etc/nixos/configuration.nix instead.
 {
   flake.nixosModules.work =
-{ config, lib, pkgs, modulesPath, ... }:
+    {
+      config,
+      lib,
+      pkgs,
+      modulesPath,
+      ...
+    }:
 
-{
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    {
+      imports = [
+        (modulesPath + "/installer/scan/not-detected.nix")
+      ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "thunderbolt" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+      boot.initrd.availableKernelModules = [
+        "nvme"
+        "thunderbolt"
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-amd" ];
+      boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/luks-650e4779-6fb1-4fe6-a98f-230756541701";
-      fsType = "ext4";
+      fileSystems."/" = {
+        device = "/dev/mapper/luks-650e4779-6fb1-4fe6-a98f-230756541701";
+        fsType = "ext4";
+      };
+
+      boot.initrd.luks.devices."luks-650e4779-6fb1-4fe6-a98f-230756541701".device =
+        "/dev/disk/by-uuid/650e4779-6fb1-4fe6-a98f-230756541701";
+
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/14CC-A2AA";
+        fsType = "vfat";
+        options = [
+          "fmask=0077"
+          "dmask=0077"
+        ];
+      };
+
+      swapDevices = [
+        { device = "/dev/mapper/luks-4e819ef1-dacb-4ea6-99f4-63cd599c6341"; }
+      ];
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
-
-  boot.initrd.luks.devices."luks-650e4779-6fb1-4fe6-a98f-230756541701".device = "/dev/disk/by-uuid/650e4779-6fb1-4fe6-a98f-230756541701";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/14CC-A2AA";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  swapDevices =
-    [ { device = "/dev/mapper/luks-4e819ef1-dacb-4ea6-99f4-63cd599c6341"; }
-    ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-};
 }

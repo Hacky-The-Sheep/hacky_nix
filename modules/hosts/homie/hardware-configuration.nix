@@ -2,35 +2,54 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-flake.nixosModules.homie = {
- config, lib, pkgs, modulesPath, ... }:
+  flake.nixosModules.homie =
+    {
+      config,
+      lib,
+      pkgs,
+      modulesPath,
+      ...
+    }:
 
-{
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    {
+      imports = [
+        (modulesPath + "/installer/scan/not-detected.nix")
+      ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "ahci" "nvme" "uas" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+      boot.initrd.availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "ahci"
+        "nvme"
+        "uas"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-intel" ];
+      boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/luks-3dfe56b4-ff10-4cee-a944-b34eee658eec";
-      fsType = "ext4";
+      fileSystems."/" = {
+        device = "/dev/mapper/luks-3dfe56b4-ff10-4cee-a944-b34eee658eec";
+        fsType = "ext4";
+      };
+
+      boot.initrd.luks.devices."luks-3dfe56b4-ff10-4cee-a944-b34eee658eec".device =
+        "/dev/disk/by-uuid/3dfe56b4-ff10-4cee-a944-b34eee658eec";
+
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/3F08-FE20";
+        fsType = "vfat";
+        options = [
+          "fmask=0077"
+          "dmask=0077"
+        ];
+      };
+
+      swapDevices = [ ];
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
-
-  boot.initrd.luks.devices."luks-3dfe56b4-ff10-4cee-a944-b34eee658eec".device = "/dev/disk/by-uuid/3dfe56b4-ff10-4cee-a944-b34eee658eec";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/3F08-FE20";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  swapDevices = [ ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-};
 }
