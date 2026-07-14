@@ -31,13 +31,14 @@
         brave
         gnome-disk-utility
         gvfs
+        kopuz
         nautilus
         signal-desktop
 
         ## System
         exfat
         ffmpeg
-        handbrake
+        # handbrake
         hyprpolkitagent
         libdvdcss
         ntfs3g
