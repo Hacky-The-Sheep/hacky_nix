@@ -80,7 +80,7 @@ let cat_white_bold = {
 
 ### Get the OS
 def os_icon [] {
-    let os = (sys host | get name | str downcase)
+    let os = (sys host | get name | str lowercase)
 
     match $os {
         "arch linux"   => "󰣇 "
