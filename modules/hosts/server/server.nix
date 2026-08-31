@@ -55,7 +55,6 @@
         # games
 
         ## Programming
-        coding
         formatters
       ];
     };
