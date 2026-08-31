@@ -22,3 +22,6 @@ hl.env("HYPRCURSOR_SIZE", "22")
 hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

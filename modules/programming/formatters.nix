@@ -6,19 +6,9 @@
         ## Dev
         alejandra
         bash-language-server
-        cargo
-        clippy
-        delve
-        gopls
-        kdePackages.qtdeclarative
         lua-language-server
-        markdown-oxide
-        marksman
         nixd
         nixfmt
-        ruff
-        rust-analyzer
-        rustfmt
         stylua
         taplo
         vscode-langservers-extracted
