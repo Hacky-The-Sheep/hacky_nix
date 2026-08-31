@@ -9,7 +9,7 @@ require("modules.look")
 require("modules.configs")
 
 hl.monitor({ output = "DP-5", mode = "3440x1440@120", position = "0x0", scale = "1" })
-hl.monitor({ output = "eDP-2", mode = "2560x1600@165", position = "0x0", scale = "1.25" })
+hl.monitor({ output = "eDP-1", mode = "2560x1600@165", position = "0x0", scale = "1.25" })
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd(TERMINAL)
