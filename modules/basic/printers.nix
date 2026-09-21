@@ -1,7 +1,8 @@
 {
-  flake.nixosModules.printers = { pkgs, ...}: {
+  flake.nixosModules.printers = { pkgs, ... }: {
     services.printing = {
       enable = true;
+      logLevel = "debug";
       drivers = with pkgs; [
         brlaser
         cups-toshiba-estudio

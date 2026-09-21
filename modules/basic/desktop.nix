@@ -17,6 +17,7 @@
 
       environment.systemPackages = with pkgs; [
         ## CLI
+        claude-code
         ffuf
         gobuster
         john

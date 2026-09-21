@@ -65,7 +65,7 @@
       { pkgs, ... }:
       {
         environment.systemPackages = with pkgs; [
-          gcr
+          # gcr
           pandoc
           qFlipper
           xmrig
