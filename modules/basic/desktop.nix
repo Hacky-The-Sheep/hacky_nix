@@ -48,6 +48,7 @@
         dnsutils
         kdePackages.kwallet
         mullvad-vpn
+        obsidian
         openssl
         syncthing
 
