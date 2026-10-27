@@ -1,136 +1,57 @@
 {
-  flake.homeModules.ssh = {
-    programs.ssh = {
-      enable = true;
+  flake.homeModules.ssh =
+    { lib, ... }:
+    let
+      legacy = {
+        user = "admin";
+        port = 22;
+        extraOptions = {
+          KexAlgorithms = "+diffie-hellman-group1-sha1,diffie-hellman-group14-sha1";
+          HostKeyAlgorithms = "+ssh-rsa";
+        };
+      };
+      modern = {
+        user = "hacky";
+        port = 22;
+      };
+      mk = base: hosts: lib.mapAttrs (_: ip: base // { hostname = ip; }) hosts;
+    in
+    {
+      programs.ssh = {
+        enable = true;
+        enableDefaultConfig = false;
 
-      extraConfig = ''
-
-        Host serv_room
-         HostName 192.168.2.80
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Panth_Lounge
-         HostName 192.168.2.10
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Tech_Deck
-         HostName 192.168.2.2
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Counseling
-         HostName 192.168.2.30
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Women_Lock_Room
-         HostName 192.168.2.50
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Women_Lock_HP
-         Hostname 10.99.0.160
-         User hacky
-         Port 22
-
-        Host Asbestos_1
-         HostName 10.99.0.120
-         User hacky
-         Port 22
-
-        Host Asbestos_2
-         HostName 10.99.0.121
-         User hacky
-         Port 22
-
-        Host Elec_Closet
-         HostName 192.168.2.20
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Elec_Closet_Bottom
-         HostName 10.99.0.141
-         User hacky
-         Port 22
-         # KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         # HostKeyAlgorithms +ssh-rsa
-
-        Host Band_Room
-         HostName 192.168.2.60
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Facilities
-         HostName 192.168.2.90
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Concession
-         HostName 192.168.2.96
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Press_Box
-         HostName 192.168.2.97
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Sci_Left
-         HostName 192.168.2.130
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Sci_Right
-         HostName 192.168.2.131
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host Shed
-         HostName 192.168.2.100
-         User admin
-         Port 22
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host LegacyCisco
-         HostName 192.168.2.110
-         User admin
-         Port 22
-         Ciphers aes128-cbc
-         KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
-         HostKeyAlgorithms +ssh-rsa
-
-        Host home
-         Hostname 192.168.1.100
-         User hacky
-         Port 22
-      '';
+        matchBlocks =
+          mk legacy {
+            serv_room = "192.168.2.80";
+            Panth_Lounge = "192.168.2.10";
+            Tech_Deck = "192.168.2.2";
+            Counseling = "192.168.2.30";
+            Women_Lock_Room = "192.168.2.50";
+            Elec_Closet = "192.168.2.20";
+            Band_Room = "192.168.2.60";
+            Facilities = "192.168.2.90";
+            Concession = "192.168.2.96";
+            Press_Box = "192.168.2.97";
+            Sci_Left = "192.168.2.130";
+            Sci_Right = "192.168.2.131";
+            Shed = "192.168.2.100";
+          }
+          // mk modern {
+            Women_Lock_HP = "10.99.0.160";
+            Asbestos_1 = "10.99.0.120";
+            Asbestos_2 = "10.99.0.121";
+            Elec_Closet_Bottom = "10.99.0.141";
+            home = "192.168.1.100";
+          }
+          // {
+            LegacyCisco = legacy // {
+              hostname = "192.168.2.110";
+              extraOptions = legacy.extraOptions // {
+                Ciphers = "aes128-cbc";
+              };
+            };
+          };
+      };
     };
-  };
 }

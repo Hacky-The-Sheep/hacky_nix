@@ -8,8 +8,10 @@ require("modules.workspace_rules")
 require("modules.look")
 require("modules.configs")
 
-hl.monitor({ output = "DP-5", mode = "3440x1440@120", position = "0x0", scale = "1" })
-hl.monitor({ output = "eDP-1", mode = "2560x1600@165", position = "0x0", scale = "1.25" })
+hl.monitor({ output = "DP-4", mode = "2560x2880@59.98", position = "0x0", scale = 1.25 })
+hl.monitor({ output = "DP-1", mode = "3840x2160@144", position = "auto-right", scale = 1.5 })
+-- hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@120", position = "auto-right", scale = 1.25 })
+-- hl.monitor({ output = "eDP-1", mode = "2560x1600@165", position = "0x0", scale = "1.25" })
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd(TERMINAL)

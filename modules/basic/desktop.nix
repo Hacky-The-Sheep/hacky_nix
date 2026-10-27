@@ -12,12 +12,20 @@
         polkit.enable = true;
       };
 
+      xdg.portal = {
+        enable = true;
+
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-hyprland
+          xdg-desktop-portal-gtk
+        ];
+      };
+
       ## Keyring
       services.gnome.gnome-keyring.enable = true;
 
       environment.systemPackages = with pkgs; [
         ## CLI
-        claude-code
         ffuf
         gobuster
         john
@@ -30,6 +38,7 @@
 
         ## GUI
         brave
+        lmstudio
         gnome-disk-utility
         gvfs
         kopuz

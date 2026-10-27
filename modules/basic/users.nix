@@ -8,13 +8,15 @@
         shell = pkgs.nushell;
 
         extraGroups = [
-          "wheel"
-          "networkmanager"
-          "libvirtd"
           "dialout"
-          "plugdev"
+          "libvirtd"
           "lp"
+          "networkmanager"
           "optical"
+          "plugdev"
+          "render"
+          "wheel"
+          "video"
         ];
       };
     };
