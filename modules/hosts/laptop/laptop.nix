@@ -81,7 +81,7 @@
             (with self.homeModules; [
 
               # HM Modules
-              desktop
+              # desktop
               fastfetch
               general
               laphypr

@@ -19,6 +19,10 @@
           xdg-desktop-portal-hyprland
           xdg-desktop-portal-gtk
         ];
+        config.niri.default = [
+          "gnome"
+          "gtk"
+        ];
       };
 
       ## Keyring
@@ -39,12 +43,14 @@
         ## GUI
         brave
         brave-origin
-        lmstudio
         gnome-disk-utility
         gvfs
-        kopuz
-        nautilus
+        kdePackages.dolphin
+        # kopuz
+        lmstudio
+        # nautilus
         signal-desktop
+        simplex-chat-desktop
 
         ## System
         exfat

@@ -26,4 +26,4 @@ hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencop
 hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
 -- For Noctalia Color templates
-require("noctalia").apply_theme()
+-- require("noctalia").apply_theme()

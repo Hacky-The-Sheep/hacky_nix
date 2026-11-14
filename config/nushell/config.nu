@@ -65,15 +65,18 @@ $env.PROMPT_INDICATOR = "󰚩  "
 ## STYLING
 ## Catppuccin
 let cat_red_bold = {
-  fg: '#f38ba8'
+  # fg: '#f38ba8'
+  fg: 'dbdbdb'
   attr: b
 }
 let cat_peach_bold = {
-  fg: "#fab387"
+  # fg: "#fab387"
+  fg: 'a8a8a8'
   attr: b
 }
 let cat_white_bold = {
-  fg: '#cdd6f4'
+  # fg: '#cdd6f4'
+  fg: 'cacaca'
   attr: b
 }
 

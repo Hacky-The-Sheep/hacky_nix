@@ -16,20 +16,20 @@
       };
 
       ## Catppuccin
-      catppuccin = {
-        enable = true;
-        accent = "peach";
-        flavor = "mocha";
-      };
+      # catppuccin = {
+      #   enable = true;
+      #   accent = "peach";
+      #   flavor = "mocha";
+      # };
 
       ## GTK
-      gtk = {
-        enable = true;
-        colorScheme = "dark";
+      # gtk = {
+      #   enable = true;
+      #   colorScheme = "dark";
 
-        gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-        gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
-      };
+      #   gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+      #   gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+      # };
 
       ## DCONF
       dconf.settings."org/gnome/desktop/interface" = {
@@ -53,6 +53,7 @@
       ## XDG Config Files
       xdg.configFile = {
         alacritty = mkLink "alacritty";
+        ghostty = mkLink "ghostty";
         helix = mkLink "helix";
         hypr = mkLink "hypr";
         niri = mkLink "niri";

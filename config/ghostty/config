@@ -1,0 +1,11 @@
+# Rice
+background-opacity = 0.4
+background-blur = 45
+
+# Title
+title = "󰮯 󰇘 󰊠 󰇘 󱙝 󰇘 "
+
+# Font
+font-size = 16
+font-family = Iosevka
+theme = noctalia

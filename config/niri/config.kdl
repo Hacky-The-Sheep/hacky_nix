@@ -57,31 +57,30 @@ output "eDP-2" {
     // Uncomment this line to disable this output.
     // off
 
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
     mode "2560x1600@165.000"
     variable-refresh-rate
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.25
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
+    position x=1280 y=0
+}
+output "eDP-1" {
+    // Uncomment this line to disable this output.
+    // off
 
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
+    mode "2560x1600@165.000"
+    variable-refresh-rate
+    scale 1.25
+    transform "normal"
+    position x=0 y=0
+}
+output "DP-10" {
+    // Uncomment this line to disable this output.
+    // off
+
+    mode "1920x1080@60.000"
+    variable-refresh-rate
+    scale 1
+    transform "normal"
     position x=1280 y=0
 }
 
@@ -90,7 +89,7 @@ output "eDP-2" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 35
+    gaps 10
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -327,7 +326,7 @@ binds {
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-    Super+Alt+W { spawn-sh "/home/hacky/Hacky_Nix/scripts/wall.sh"; }
+    Super+Alt+W { spawn-sh "/home/hacky/hacky_nix/scripts/wall.sh"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -574,8 +573,8 @@ binds {
     // }
 }
 
-include "noctalia.kdl"
-
 environment {
-    XDG_DATA_DIRS "~/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/home/hacky/.local/share/flatpak/exports/share"
+    QT_QPA_PLATFORMTHEME "qt6ct"
 }
+
+include "noctalia.kdl"

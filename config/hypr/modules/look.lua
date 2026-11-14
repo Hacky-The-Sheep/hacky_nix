@@ -5,13 +5,13 @@ hl.config({
 
 		border_size = 2,
 
-		col = {
-			active_border = {
-				colors = { "rgba(33ccffee)", "rgba(00ff99ee)" },
-				angle = 45,
-			},
-			inactive_border = "rgba(43ff64d9)",
-		},
+		-- col = {
+		-- 	active_border = {
+		-- 		colors = { "rgba(33ccffee)", "rgba(00ff99ee)" },
+		-- 		angle = 45,
+		-- 	},
+		-- 	inactive_border = "rgba(43ff64d9)",
+		-- },
 
 		resize_on_border = false,
 		allow_tearing = false,
@@ -19,7 +19,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 15,
+		rounding = 0,
 		rounding_power = 2,
 
 		active_opacity = 0.9,
@@ -41,9 +41,9 @@ hl.config({
 		},
 	},
 
-	animations = {
-		enabled = true,
-	},
+	-- animations = {
+	-- 	enabled = true,
+	-- },
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
