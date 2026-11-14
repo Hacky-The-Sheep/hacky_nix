@@ -7,5 +7,6 @@ title = "󰮯 󰇘 󰊠 󰇘 󱙝 󰇘 "
 
 # Font
 font-size = 16
-font-family = Iosevka
+# font-family = Iosevka
+font-family = Departure Mono
 theme = noctalia
