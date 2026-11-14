@@ -44,7 +44,7 @@
         users
 
         ## Flakes
-        catppuccin
+        # catppuccin
         hyprland
         nixos-hardware-fw16
         noctalia
@@ -88,7 +88,7 @@
               ssh
             ])
             ++ [
-              inputs.catppuccin.homeModules.catppuccin
+              # inputs.catppuccin.homeModules.catppuccin
             ];
         };
 

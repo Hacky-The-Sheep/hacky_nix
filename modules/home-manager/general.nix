@@ -5,7 +5,6 @@
       dotfiles = "${config.home.homeDirectory}/hacky_nix/config";
       mkLink = name: {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${name}";
-        recursive = true;
       };
     in
     {

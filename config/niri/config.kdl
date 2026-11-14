@@ -242,7 +242,7 @@ layout {
 }
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "/home/hacky/scripts/startup.sh"
+spawn-sh-at-startup "/home/hacky/hacky_nix/scripts/startup.sh"
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     // skip-at-startup
@@ -310,7 +310,7 @@ window-rule {
 
 // Enable rounded corners for all windows.
 window-rule {
-    geometry-corner-radius 20
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 

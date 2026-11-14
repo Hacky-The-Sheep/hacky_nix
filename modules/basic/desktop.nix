@@ -38,6 +38,7 @@
 
         ## GUI
         brave
+        brave-origin
         lmstudio
         gnome-disk-utility
         gvfs
@@ -49,7 +50,7 @@
         exfat
         ffmpeg
         # handbrake
-        hyprpolkitagent
+        # hyprpolkitagent
         libdvdcss
         ntfs3g
 
