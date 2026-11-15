@@ -45,10 +45,9 @@
         brave-origin
         gnome-disk-utility
         gvfs
-        kdePackages.dolphin
         # kopuz
         lmstudio
-        # nautilus
+        nautilus
         signal-desktop
         simplex-chat-desktop
 
