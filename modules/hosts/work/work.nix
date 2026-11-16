@@ -84,7 +84,7 @@
 
               # HM Modules
               # work
-              desktop
+              # desktop
               general
               ssh
             ])

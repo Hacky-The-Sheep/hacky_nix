@@ -41,7 +41,6 @@
         yt-dlp
 
         ## GUI
-        brave
         brave-origin
         gnome-disk-utility
         gvfs
