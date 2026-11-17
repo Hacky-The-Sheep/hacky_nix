@@ -1,178 +1,220 @@
+[audio]
+colorize_icons = true
+
 [bar.default]
-background_opacity = 0.24999999441206455
-center = ["clock", "notifications"]
-end = [
-  "tray",
-  "network",
-  "bluetooth",
-  "volume",
-  "brightness",
-  "battery",
-  "control-center",
-  "session",
-]
-margin_ends = 20
+background_opacity = 0.90999997965991497
+center = [ "clock", "notifications" ]
+concave_edge_corners = false
+end = [ "tray", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
+font_scale = 0.98999998532235622
+margin_ends = 0
 padding = 16
-start = ["workspaces", "wallpaper", "audio_visualizer"]
+radius = 0
+shadow = false
+start = [ "workspaces", "wallpaper", "audio_visualizer" ]
 thickness = 36
 widget_spacing = 8
 
 [desktop_widgets]
 enabled = false
 
+[dock]
+colorize_icons = true
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
 widget_order = [
-  "lockscreen-login-box@DP-10",
-  "lockscreen-login-box@DP-3",
-  "lockscreen-login-box@eDP-1",
-  "lockscreen-login-box@eDP-2",
-  "lockscreen-login-box@DP-5",
+    "lockscreen-login-box@DP-10",
+    "lockscreen-login-box@DP-3",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-login-box@eDP-2",
+    "lockscreen-login-box@DP-5",
+    "lockscreen-login-box@WAYLAND-1"
 ]
 
-[lockscreen_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-10"]
-box_height = 196.0
-box_width = 810.0
-cx = 960.0
-cy = 898.0
-output = "DP-10"
-placement_height = 1080.0
-placement_width = 1920.0
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-10"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-10"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-10".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-10".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
-box_height = 196.0
-box_width = 810.0
-cx = 1920.0
-cy = 1978.0
-output = "DP-3"
-placement_height = 2160.0
-placement_width = 3840.0
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1920.0
+    cy = 1978.0
+    output = "DP-3"
+    placement_height = 2160.0
+    placement_width = 3840.0
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-5"]
-box_height = 196.0
-box_width = 810.0
-cx = 1720.0
-cy = 1317.0
-output = "DP-5"
-placement_height = 0.0
-placement_width = 0.0
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-5"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1720.0
+    cy = 1317.0
+    output = "DP-5"
+    placement_height = 0.0
+    placement_width = 0.0
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-5".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-5".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-box_height = 196.0
-box_width = 810.0
-cx = 1024.0
-cy = 1047.0399169921875
-output = "eDP-1"
-placement_height = 1280.0
-placement_width = 2048.0
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
+    box_height = 196.0
+    box_width = 422.0
+    cx = 227.0
+    cy = 305.0
+    output = "WAYLAND-1"
+    placement_height = 487.0
+    placement_width = 454.0
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
-box_height = 196.0
-box_width = 810.0
-cx = 1024.0
-cy = 1157.0
-output = "eDP-2"
-placement_height = 1280.0
-placement_width = 2048.0
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1024.0
+    cy = 1047.0399169921875
+    output = "eDP-1"
+    placement_height = 1280.0
+    placement_width = 2048.0
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1024.0
+    cy = 1157.0
+    output = "eDP-2"
+    placement_height = 1280.0
+    placement_width = 2048.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_media_controls = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
 [notification]
 background_opacity = 0.88999998010694981
+colorize_icons = true
 position = "top_center"
 scale = 1.0500000081956387
 
@@ -181,41 +223,58 @@ enabled = []
 
 [shell]
 colorize_icons = true
-corner_radius_scale = 0.0
-font_family = "Iosevka"
+corner_radius_scale = 0.35000000521540642
+font_family = "Departure Mono"
 polkit_agent = true
+polkit_colorize_icons = true
+screen_time_colorize_icons = true
 ui_scale = 1.1000000089406967
 
-[shell.animation]
-enabled = false
+    [shell.animation]
+    enabled = false
 
-[shell.panel]
-transparency_mode = "glass"
+    [shell.launcher]
+    colorize_icons = true
+
+    [shell.panel]
+    transparency_mode = "glass"
+
+    [shell.window_switcher]
+    colorize_icons = true
 
 [theme]
 builtin = "Catppuccin"
-community_palette = "Kanagawa Dragon"
+community_palette = "Monochrome"
 mode = "dark"
 source = "community"
 
-[theme.templates]
-builtin_ids = ["btop", "gtk3", "gtk4", "ghostty", "helix", "hyprland", "niri"]
-community_ids = ["brave", "brave-origin", "discord"]
+    [theme.templates]
+    builtin_ids = [ "alacritty", "btop", "gtk3", "gtk4", "ghostty", "helix", "hyprland", "niri", "qt" ]
+    community_ids = [ "brave", "brave-origin", "discord", "libreoffice", "fastfetch", "thunar", "bat" ]
 
-[wallpaper.default]
-path = "/home/hacky/Pictures/Wallpapers/Van.jpg"
+[wallpaper]
+directory = "/home/hacky/Pictures/Wallpapers"
 
-[wallpaper.last]
-path = "/home/hacky/Pictures/Wallpapers/Van.jpg"
+    [wallpaper.default]
+    path = "/home/hacky/Pictures/Wallpapers/waves.jpg"
 
-[wallpaper.monitors.DP-5]
-path = "/home/hacky/Pictures/Wallpapers/retro_wave_2.jpg"
+    [wallpaper.last]
+    path = "/home/hacky/Pictures/Wallpapers/waves.jpg"
 
-[wallpaper.monitors.eDP-1]
-path = "/home/hacky/Pictures/Wallpapers/Van.jpg"
+    [wallpaper.monitors.DP-10]
+    path = "/home/hacky/Pictures/Wallpapers/art_flowers.png"
 
-[wallpaper.monitors.eDP-2]
-path = "/home/hacky/Pictures/Wallpapers/mr_robot_2.png"
+    [wallpaper.monitors.DP-5]
+    path = "/home/hacky/Pictures/Wallpapers/retro_wave_2.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/hacky/Pictures/Wallpapers/waves.jpg"
+
+    [wallpaper.monitors.eDP-2]
+    path = "/home/hacky/Pictures/Wallpapers/mr_robot_2.png"
+
+[widget.active_window]
+colorize_icons = true
 
 [widget.audio_visualizer]
 show_when_idle = true
@@ -233,3 +292,12 @@ scale = 1.2
 
 [widget.session]
 scale = 1.2
+
+[widget.taskbar]
+colorize_icons = true
+
+[widget.tray]
+colorize_icons = true
+
+[widget.workspaces]
+colorize_icons = true
