@@ -7,6 +7,7 @@
         brlaser
         cups-toshiba-estudio
         epsonscan2
+        epson-escpr2
         ptouch-driver
       ];
     };
