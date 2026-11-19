@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.amd = { pkgs, ...}: {
+  flake.nixosModules.amd = { pkgs, ... }: {
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     services.xserver.videoDrivers = [ "amdgpu" ];
@@ -18,6 +18,7 @@
       enable = true;
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
+        rocmPackages.rocminfo
       ];
     };
 
