@@ -30,6 +30,7 @@
         fwdesk
 
         ## Basic
+        ai
         audio
         basic
         bluetooth
@@ -69,7 +70,6 @@
           framework-tool
           pandoc
           qFlipper
-          xmrig
         ];
 
         ## Hostname
@@ -80,24 +80,26 @@
         ];
 
         home-manager.users.hacky = {
-          imports =
-            (with self.homeModules; [
+          imports = (
+            with self.homeModules;
+            [
 
               # HM Modules
               # work
               # desktop
               general
               ssh
-            ])
-            ++ [
-              inputs.catppuccin.homeModules.catppuccin
-            ];
+            ]
+          );
+          # ++ [
+          #   inputs.catppuccin.homeModules.catppuccin
+          # ];
 
-          catppuccin = {
-            enable = true;
-            accent = "peach";
-            flavor = "mocha";
-          };
+          # catppuccin = {
+          #   enable = true;
+          #   accent = "peach";
+          #   flavor = "mocha";
+          # };
 
           home = {
             stateVersion = "25.11";

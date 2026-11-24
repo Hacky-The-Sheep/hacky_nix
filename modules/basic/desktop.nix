@@ -44,8 +44,8 @@
         brave-origin
         gnome-disk-utility
         gvfs
-        # kopuz
-        lmstudio
+        kopuz
+        ladybird
         nautilus
         signal-desktop
         simplex-chat-desktop
@@ -54,7 +54,6 @@
         exfat
         ffmpeg
         # handbrake
-        # hyprpolkitagent
         libdvdcss
         ntfs3g
 
@@ -80,7 +79,6 @@
         ## Work
         libreoffice
         microsoft-edge
-        onlyoffice-desktopeditors
         powershell
         remmina
         wireshark
