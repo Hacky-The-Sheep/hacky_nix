@@ -12,7 +12,7 @@
 
   flake.nixosModules.nixos-hardware-fwDesk = {
     imports = [
-      inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+      inputs.nixos-hardware.nixosModules.framework-desktop-amd-ai-max-300-series
     ];
   };
 

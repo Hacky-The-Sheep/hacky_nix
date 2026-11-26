@@ -8,36 +8,52 @@
       lib,
       pkgs,
       modulesPath,
-      ... }:
+      ...
+    }:
 
-{
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    {
+      imports = [
+        (modulesPath + "/installer/scan/not-detected.nix")
+      ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+      boot.initrd.availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "thunderbolt"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-amd" ];
+      boot.kernelParams = [
+        "amdgpu.gttsize=49152"
+        "ttm.pages_limit=12582912"
+      ];
+      boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/luks-08cfc7cc-02e1-4002-9e9e-1f19ec6fbdc1";
-      fsType = "ext4";
+      fileSystems."/" = {
+        device = "/dev/mapper/luks-08cfc7cc-02e1-4002-9e9e-1f19ec6fbdc1";
+        fsType = "ext4";
+      };
+
+      boot.initrd.luks.devices."luks-08cfc7cc-02e1-4002-9e9e-1f19ec6fbdc1".device =
+        "/dev/disk/by-uuid/08cfc7cc-02e1-4002-9e9e-1f19ec6fbdc1";
+
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/1F34-E2A3";
+        fsType = "vfat";
+        options = [
+          "fmask=0077"
+          "dmask=0077"
+        ];
+      };
+
+      swapDevices = [
+        { device = "/dev/mapper/luks-7808efda-ce74-4060-8f7f-ec340f1c2e94"; }
+      ];
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
-
-  boot.initrd.luks.devices."luks-08cfc7cc-02e1-4002-9e9e-1f19ec6fbdc1".device = "/dev/disk/by-uuid/08cfc7cc-02e1-4002-9e9e-1f19ec6fbdc1";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1F34-E2A3";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  swapDevices =
-    [ { device = "/dev/mapper/luks-7808efda-ce74-4060-8f7f-ec340f1c2e94"; }
-    ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  };
 }

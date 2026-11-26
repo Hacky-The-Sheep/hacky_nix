@@ -79,7 +79,7 @@ output "DP-4" {
 
     mode "3440x1440@120.000"
     variable-refresh-rate
-    scale 1
+    scale 1.25
     transform "normal"
     position x=1280 y=0
 }
@@ -336,7 +336,6 @@ binds {
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-    Super+Alt+W { spawn-sh "/home/hacky/hacky_nix/scripts/wall.sh"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.

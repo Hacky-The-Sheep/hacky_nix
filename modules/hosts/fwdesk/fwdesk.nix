@@ -54,7 +54,6 @@
 
         ## Gaming
         amd
-        games
 
         ## Programming
         formatters
@@ -89,7 +88,7 @@
               # work
               # desktop
               general
-              ssh
+              # ssh
             ]
           );
           # ++ [

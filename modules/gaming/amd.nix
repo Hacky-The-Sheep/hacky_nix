@@ -19,6 +19,7 @@
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
         rocmPackages.rocminfo
+        mesa
       ];
     };
 
