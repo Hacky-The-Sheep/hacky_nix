@@ -17,15 +17,6 @@
   flake = {
     nixosConfigurations.server = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs self;
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          config = {
-            allowUnfree = true;
-          };
-        };
-      };
       modules = with self.nixosModules; [
         server
 
