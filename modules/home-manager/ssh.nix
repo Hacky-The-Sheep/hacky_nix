@@ -2,26 +2,25 @@
   flake.homeModules.ssh =
     { lib, ... }:
     let
+      # Old switches that only speak legacy key exchange / host key algorithms
       legacy = {
-        user = "admin";
-        port = 22;
-        extraOptions = {
-          KexAlgorithms = "+diffie-hellman-group1-sha1,diffie-hellman-group14-sha1";
-          HostKeyAlgorithms = "+ssh-rsa";
-        };
+        User = "admin";
+        Port = 22;
+        KexAlgorithms = "+diffie-hellman-group1-sha1,diffie-hellman-group14-sha1";
+        HostKeyAlgorithms = "+ssh-rsa";
       };
       modern = {
-        user = "hacky";
-        port = 22;
+        User = "hacky";
+        Port = 22;
       };
-      mk = base: hosts: lib.mapAttrs (_: ip: base // { hostname = ip; }) hosts;
+      mk = base: hosts: lib.mapAttrs (_: ip: base // { HostName = ip; }) hosts;
     in
     {
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
 
-        matchBlocks =
+        settings =
           mk legacy {
             serv_room = "192.168.2.80";
             Panth_Lounge = "192.168.2.10";
@@ -46,10 +45,8 @@
           }
           // {
             LegacyCisco = legacy // {
-              hostname = "192.168.2.110";
-              extraOptions = legacy.extraOptions // {
-                Ciphers = "aes128-cbc";
-              };
+              HostName = "192.168.2.110";
+              Ciphers = "aes128-cbc";
             };
           };
       };
