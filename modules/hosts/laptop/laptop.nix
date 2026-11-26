@@ -81,6 +81,7 @@
             (with self.homeModules; [
 
               # HM Modules
+              base
               # desktop
               fastfetch
               general

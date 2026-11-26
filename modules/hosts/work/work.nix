@@ -84,6 +84,7 @@
             (with self.homeModules; [
 
               # HM Modules
+              base
               # work
               # desktop
               general
@@ -97,27 +98,6 @@
             enable = true;
             accent = "peach";
             flavor = "mocha";
-          };
-
-          home = {
-            stateVersion = "25.11";
-            username = "hacky";
-            homeDirectory = "/home/hacky";
-          };
-
-          ## Dark mode for GTK
-          dconf = {
-            settings = {
-              "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-              };
-            };
-          };
-          gtk = {
-            enable = true;
-            colorScheme = "dark";
-            gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-            gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
           };
 
         };
