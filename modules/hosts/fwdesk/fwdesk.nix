@@ -31,6 +31,7 @@
 
         ## Basic
         ai
+        forge
         audio
         basic
         bluetooth

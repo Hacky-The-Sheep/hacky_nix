@@ -56,6 +56,23 @@
         "type": "github"
       }
     },
+    "forge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795744205,
+        "narHash": "sha256-VaAT3QYEF85anLmMUH72iqqkUCK0+BneD9WSWLlR9MM=",
+        "ref": "inkling-gpu",
+        "rev": "0e81a7204a6718fd480d097b88e902e2f9974308",
+        "revCount": 7,
+        "type": "git",
+        "url": "file:///home/hacky/forge"
+      },
+      "original": {
+        "ref": "inkling-gpu",
+        "type": "git",
+        "url": "file:///home/hacky/forge"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -161,6 +178,7 @@
         "catppuccin": "catppuccin",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
+        "forge": "forge",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "nixos-hardware": "nixos-hardware",

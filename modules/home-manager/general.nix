@@ -52,6 +52,7 @@
         niri = mkLink "niri";
         noctalia = mkLink "noctalia";
         nushell = mkLink "nushell";
+        opencode = mkLink "opencode";
       };
     };
 }
