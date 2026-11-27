@@ -19,8 +19,10 @@
       system = "x86_64-linux";
       modules = with self.nixosModules; [
         work
+        work-ai
 
         ## Basic
+        ai
         audio
         basic
         bluetooth
@@ -60,7 +62,6 @@
           claude-code
           pandoc
           qFlipper
-          xmrig
         ];
 
         ## Hostname
